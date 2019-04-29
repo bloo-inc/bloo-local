@@ -4,7 +4,7 @@
   "description": "Local environment for Bloo",
   "main": "index.js",
   "scripts": {
-    "pull": "if cd bloo-graph; then git pull; else git clone git@github.com:bloo-inc/bloo-graph.git; fi; cd bloo-graph && npm install;",
+    "pull": "if cd bloo-graph; then git pull; else git clone -b develop git@github.com:bloo-inc/bloo-graph.git; fi; cd bloo-graph && npm install;",
     "start": "npm run pull && docker-compose up -d",
     "stop" : "docker-compose down"
   },

@@ -8,7 +8,9 @@ services:
     volumes:
       - "./bloo-refdb/:/var/lib/mysql"
   graph:
-    image: gcr.io/bloo-cloud/bloo-graph:latest
+    build:
+      context: ./bloo-graph
+      dockerfile: image/Dockerfile
     restart: always
     links:
       - refdb
@@ -23,3 +25,4 @@ services:
       REF_DB_NAME: bloo
       JWT_SECRET: Y2JNaFBBOXZVYnFxOFJ6cm00S3ZkQk51U0Y1ZkFNTlhHUWM5ZjdOdXM4SnQ0OExER1RtUTlXSmFyUUpYYUpTYUpXZlRFcVdXd3JDNVZKU2R1RnFjMlZDYm1GZm5SZTJaVENyMnpjdGdHMkNBSGI0Y2F2dHByejVWNGtDajJDc3d2cjZoUnBERTI4d3I5dlE2clZtM1JNWm0zbVN4cFpCSFBkN1ZocGVjUmVQUlQ3VG5aZFZQVThVZG5ZZHc1ejZ0RjVocDRKYUdHMjdUdTRDUHhSNndMZngyenE5ekhMdFRBU213U3VSanFVZmNhUXE0RDl1NVJzSFpTamFjVkR6OQ==
       JWT_REFRESH_SECRET: eG1Kakg4VHp2YzdQZ3Q5RlJYTEUycnZ4SlkzTVRwQlhqQlBNU0hCTVVWRVFTU1d4RzZKQmJaTHRhelMyNXZlZWNIRVFoTnI4SGRMWVhSNDZzVTRHVFB1alZFY1pIOHU0aFF2RFAzeUZnald1VXp5ZnFOUGF4eGpxeEJ4VUhmeW10ZVROZXc5dWRYVnpibUZtVFFBWUhBQkoyS3Q0RmVNZVFyU3FOQ3NreHU1cnhhRUMyS0tKdUFyRFhCQmZCN3dWcG5OWEN3QmdNSGJRcnVLYjhxdnd0Z0pjS1ZuNndwdGZRVkd5eUprWDNKWVlTclRFOVNIUnFhRVc2TnJEY1lDTg==
+      NODE_ENV: "development"

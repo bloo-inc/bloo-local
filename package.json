@@ -4,9 +4,11 @@
   "description": "Local environment for Bloo",
   "main": "index.js",
   "scripts": {
-    "pull": "if cd bloo-graph; then git pull; else git clone -b develop git@github.com:bloo-inc/bloo-graph.git; fi; cd bloo-graph && npm install;",
-    "start": "npm run pull && docker-compose up -d",
-    "stop" : "docker-compose down"
+    "pull": "if [ -d \"bloo-graph\" ]; then git pull; else git clone -b develop git@github.com:bloo-inc/bloo-graph.git; fi; cd bloo-graph && npm install;",
+    "start": "npm run pull && docker-compose up -d --build",
+    "stop" : "docker-compose down",
+    "logs": "docker logs -f $(docker ps --filter \"name=graph\" -aq)",
+    "exec": "docker exec -it $(docker ps --filter \"name=graph\" -aq) /bin/bash"
   },
   "repository": {
     "type": "git",
